@@ -13,3 +13,5 @@ Task: task/
 python manage.py create_campaign_dummy_data
 python manage.py create_member_dummy_data
 python manage.py create_task_dummy_data
+
+Swagger UI: `swagger/`
