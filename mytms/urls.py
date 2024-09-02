@@ -25,7 +25,7 @@ from rest_framework import permissions
 schema_view = get_schema_view(
     openapi.Info(
         title="MYTMS API Documentation",
-        default_version='v1',
+        default_version="v1",
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -36,6 +36,9 @@ urlpatterns = [
     path("campaign/", include("campaign.urls")),
     path("member/", include("member.urls")),
     path("task/", include("task.urls")),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path(
+        "swagger/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
 ]
-
