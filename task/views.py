@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from .models import Task
@@ -11,6 +12,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
 
     @method_decorator(cache_page(60 * 15))
+    @action(detail=False, methods=["get"])
     def week_tasks(self, request, year, week):
         tasks = Task.objects.filter(created_at__year=year, created_at__week=week)
 
